@@ -77,7 +77,7 @@ def main():
         if not args.no_freeze:
             print("Freezing WCA app ...")
             print("*** Look for errors here *** \n")
-            wca = imp.load_source('wca', 'wca.py')
+            wca = imp.load_source('app', 'app.py')
             frozen_wca = Freezer(wca.app)
 
             # Hierarchy required for URL generators for Flask static.
