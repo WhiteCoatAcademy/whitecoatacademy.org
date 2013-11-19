@@ -3,23 +3,34 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}{% endblock %} &mdash; White Coat Academy, Inc.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>{% block title %}{% endblock %} &mdash; White Coat Academy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{% block meta_description %}{% endblock %}" />
     <meta name="author" content="{% block meta_author %}Nick Semenkovich (@semenko), ClinDesk &amp; White Coat Academy{% endblock %}" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap.no-icons.min.css" rel="stylesheet">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
-    <link href="{{ static('css/shared.css') }}" rel="stylesheet" />
+
+    {%- if config.apphost is defined -%}
+    {# Building for production. Use the CDN minified versions. #}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ static('css/wca-style.css') }}" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Only serve analytics code if not running locally. -->
     {% include '_analytics_code.html' %}
+    {% else %}
+    {# Running locally. Use local versions (e.g. work on airplanes!) #}
+    <link href="{{ static('css/bootstrap-3.0.2.css') }}" rel="stylesheet">
+    <link href="{{ static('css/wca-style.css') }}" rel="stylesheet">
+    <link href="{{ static('css/font-awesome-4.0.3.css') }}" rel="stylesheet">
+    {% endif %}
+
+    {# Move this to local dependent code? #}
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+
     <!--[if lt IE 8]><script src="//ie6-upgrade-warning.googlecode.com/svn/trunk/ie6/warning.js"></script><script>window.onload=function(){e("//ie6-upgrade-warning.googlecode.com/svn/trunk/ie6/")}</script><![endif]-->
-    <!--[if lt IE 9]><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"></script><![endif]-->
-    {#
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ static('img/ico/apple-touch-icon-144-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ static('img/ico/apple-touch-icon-114-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ static('img/ico/apple-touch-icon-72-precomposed.png') }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ static('img/ico/apple-touch-icon-57-precomposed.png') }}">
-    #}
+    <!--[if lt IE 9]><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script><![endif]-->
+    {# TODO: Add Apple Touch icons & massive favicons. #}
+
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 
@@ -76,15 +87,20 @@
 </footer>
 
 {%- if config.apphost is defined -%}
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ static('js/jquery-1.9.1.min.js') }}">\x3C/script>')</script>
-<script type="text/javascript" src="{{ static('js/shared.js') }}"></script>
-<script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
-<script>$('body').popover || document.write('<script src="{{ static('js/bootstrap-2.3.0.min.js') }}">\x3C/script>')</script>
+{# Building for production. Use the CDN minified versions. #}
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- This crazy code is failover if a CDN is blocked / fails. -->
+<script>window.jQuery || document.write('<script src="{{ static('js/jquery-1.10.2.js') }}">\x3C/script>')</script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<!-- This crazy code is failover if a CDN is blocked / fails. -->
+<script>$('body').popover || document.write('<script src="{{ static('js/bootstrap-3.0.2.js') }}">\x3C/script>')</script>
+<script src="{{ static('js/wca-scripts.js') }}"></script>
 {% else %}
-<script type="text/javascript" src="{{ static('js/jquery-1.9.1.min.js') }}"></script>
-<script type="text/javascript" src="{{ static('js/shared.js') }}"></script>
-<script type="text/javascript" src="{{ static('js/bootstrap-2.3.0.min.js') }}"></script>
+{# Running locally. Use local versions (e.g. work on airplanes!) #}
+<script src="{{ static('js/jquery-1.10.2.js') }}"></script>
+<script src="{{ static('js/bootstrap-3.0.2.js') }}"></script>
+<script src="{{ static('js/wca-scripts.js') }}"></script>
 {% endif %}
+
 </body>
 </html>
