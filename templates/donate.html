@@ -2,93 +2,115 @@
 {% block title %}Support Us{% endblock %}
 {% set donate_active = 'active' %}
 {% block meta_description %}Donate & help us create free medical resources{% endblock %}
+
+{# We want a breadcrumb / header block. #}
+{% set header_title = "Donate" %}
+{% set header_text = "Help Us Create Free Medical Resources" %}
+
 {% block maincontent %}
 
-<body>
 <div class="container">
-    <br><br>
+
+
     <div class="row">
-        <div class="span4">
-            <div class="well" style="height:300px;">
-                <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
-                    <input type="hidden" name="returnUrl" value="http://www.clindesk.org/thanks.html" >
-                    <input type="hidden" name="processImmediate" value="1" >
-                    <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-                    <input type="hidden" name="signatureMethod" value="HmacSHA256" >
-                    <input type="hidden" name="collectShippingAddress" value="0" >
-                    <input type="hidden" name="isDonationWidget" value="1" >
-                    <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
-                    <input type="hidden" name="referenceId" value="clindesk-001" >
-                    <input type="hidden" name="cobrandingStyle" value="logo" >
-                    <input type="hidden" name="immediateReturn" value="1" >
-                    <input type="hidden" name="amount" value="USD 25" >
-                    <input type="hidden" name="description" value="ClinDesk, Hosting for a Day" >
-                    <input type="hidden" name="abandonUrl" value="http://www.clindesk.org/donate.html" >
-                    <input type="hidden" name="signatureVersion" value="2" >
-                    <input type="hidden" name="signature" value="Ixt8S3PKIAPl8p/8i5NewotJoL87DsePxrWGMWHsdnA=" >
-                    <h3 class="text-warning">Hosting for A Day</h3><br>
-                    <p>Running our website is expensive!</p>
-                    <p>Help spread medical knowledge by keeping us running.</p><br>
-                    <button type="submit" class="btn btn-warning">Help Run our Website for <b>$25</b></button>
-                </form>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="well" style="height:300px;">
-                <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
-                    <input type="hidden" name="returnUrl" value="http://www.clindesk.org/thanks.html" >
-                    <input type="hidden" name="processImmediate" value="1" >
-                    <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-                    <input type="hidden" name="signatureMethod" value="HmacSHA256" >
-                    <input type="hidden" name="collectShippingAddress" value="0" >
-                    <input type="hidden" name="isDonationWidget" value="1" >
-                    <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
-                    <input type="hidden" name="referenceId" value="clindesk-002" >
-                    <input type="hidden" name="cobrandingStyle" value="logo" >
-                    <input type="hidden" name="immediateReturn" value="1" >
-                    <input type="hidden" name="amount" value="USD 200" >
-                    <input type="hidden" name="description" value="ClinDesk, Any Donation Helps" >
-                    <input type="hidden" name="abandonUrl" value="http://www.clindesk.org/donate.html" >
-                    <input type="hidden" name="signatureVersion" value="2" >
-                    <input type="hidden" name="signature" value="aosHYUTumKOokLeC94W909v6q7XDDpZTGlvJekV99ss=" >
-                    <h3 class="text-success">Sponsor a Disease</h3><br>
-                    <p>Want something we don't have? Sponsor a disease and we'll add it to our video series.</p>
-                    <p>If you sponsor a disease, we'll get in touch and work with you as we make our videos!</p><br>
-                    <button type="submit" class="btn btn-success">Sponsor a Disease for <b>$200</b></button>
-                </form>
-            </div>
-        </div>
-        <div class="span4">
-            <div class="well" style="height:340px;">
-                <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
-                    <input type="hidden" name="returnUrl" value="http://www.clindesk.org/thanks.html" >
-                    <input type="hidden" name="processImmediate" value="1" >
-                    <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
-                    <input type="hidden" name="signatureMethod" value="HmacSHA256" >
-                    <input type="hidden" name="collectShippingAddress" value="0" >
-                    <input type="hidden" name="isDonationWidget" value="1" >
-                    <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
-                    <input type="hidden" name="referenceId" value="clindesk-003" >
-                    <input type="hidden" name="cobrandingStyle" value="logo" >
-                    <input type="hidden" name="immediateReturn" value="1" >
-                    <input type="hidden" name="description" value="ClinDesk, Any Donation Helps" >
-                    <input type="hidden" name="abandonUrl" value="http://www.clindesk.org/donate.html" >
-                    <input type="hidden" name="signatureVersion" value="2" >
-                    <input type="hidden" name="signature" value="HkHrz3l6FdCLDUnwxKP8JNtLaH/tjUTovpwZ4PP2oFE=" >
-                    <h3 class="text-info">Give What You Can</h3><br>
-                    <p>Help us open medical knowledge.</p>
-                    <blockquote>
-                      <p>The history of medicine is that what was inconceivable yesterday and barely achievable today often becomes routine tomorrow.</p>
-                      <small>Thomas Starzl <cite title="MD">MD</cite></small>
-                    </blockquote>
-                    <p>Any amount helps.</p>
-                    <form class="form-inline">
-                        <span class="add-on">$</span><input type="text" name="amount" class="input-small" value="15">
-                        <button type="submit" class="btn btn-info">Give Now</button>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h3 class="text-warning">Hosting for A Day</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Web hosting is expensive! Can you help us run the site for a day?</p>
+                    <hr>
+                    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                        <input type="hidden" name="returnUrl" value="http://www.whitecoatacademy.org/thanks.html" >
+                        <input type="hidden" name="processImmediate" value="1" >
+                        <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+                        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+                        <input type="hidden" name="collectShippingAddress" value="0" >
+                        <input type="hidden" name="isDonationWidget" value="1" >
+                        <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
+                        <input type="hidden" name="referenceId" value="clindesk-001" >
+                        <input type="hidden" name="cobrandingStyle" value="logo" >
+                        <input type="hidden" name="immediateReturn" value="1" >
+                        <input type="hidden" name="amount" value="USD 7" >
+                        <input type="hidden" name="description" value="White coat Academy, Hosting for a Day" >
+                        <input type="hidden" name="abandonUrl" value="http://www.whitecoatacademy.org/donate.html" >
+                        <input type="hidden" name="signatureVersion" value="2" >
+                        <input type="hidden" name="signature" value="Ixt8S3PKIAPl8p/8i5NewotJoL87DsePxrWGMWHsdnA=" >
+                        <button type="submit" class="btn btn-warning">Help Run our Website for <b>$7</b></button>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h3 class="text-success">Sponsor a Calculator</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Don't see the calculator you want? Support us at this level and we'll build it for you!</p>
+                    <hr>
+
+                    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                        <input type="hidden" name="returnUrl" value="http://www.whitecoatacademy.org/thanks.html" >
+                        <input type="hidden" name="processImmediate" value="1" >
+                        <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+                        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+                        <input type="hidden" name="collectShippingAddress" value="0" >
+                        <input type="hidden" name="isDonationWidget" value="1" >
+                        <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
+                        <input type="hidden" name="referenceId" value="clindesk-002" >
+                        <input type="hidden" name="cobrandingStyle" value="logo" >
+                        <input type="hidden" name="immediateReturn" value="1" >
+                        <input type="hidden" name="amount" value="USD 25" >
+                        <input type="hidden" name="description" value="White Coat Academy, Sponsor a Calculator" >
+                        <input type="hidden" name="abandonUrl" value="http://www.whitecoatacademy.org/donate.html" >
+                        <input type="hidden" name="signatureVersion" value="2" >
+                        <input type="hidden" name="signature" value="aosHYUTumKOokLeC94W909v6q7XDDpZTGlvJekV99ss=" >
+                        <button type="submit" class="btn btn-success">Sponsor a Calculator for <b>$25</b></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h3 class="text-info">Give Another Amount</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Help us share medical knowledge.<br>Any amount helps.</p>
+                    <hr>
+                    <form action="https://authorize.payments.amazon.com/pba/paypipeline" method="post">
+                        <input type="hidden" name="returnUrl" value="http://www.whitecoatacademy.org/thanks.html" >
+                        <input type="hidden" name="processImmediate" value="1" >
+                        <input type="hidden" name="accessKey" value="11SEM03K88SD016FS1G2" >
+                        <input type="hidden" name="signatureMethod" value="HmacSHA256" >
+                        <input type="hidden" name="collectShippingAddress" value="0" >
+                        <input type="hidden" name="isDonationWidget" value="1" >
+                        <input type="hidden" name="amazonPaymentsAccountId" value="DKCLGRNGBYIT44TA45I766U33ZQ8MRBMJPQZF5" >
+                        <input type="hidden" name="referenceId" value="clindesk-003" >
+                        <input type="hidden" name="cobrandingStyle" value="logo" >
+                        <input type="hidden" name="immediateReturn" value="1" >
+                        <input type="hidden" name="description" value="ClinDesk and White Coat Academy, Any Donation Helps" >
+                        <input type="hidden" name="abandonUrl" value="http://www.clindesk.org/donate.html" >
+                        <input type="hidden" name="signatureVersion" value="2" >
+                        <input type="hidden" name="signature" value="HkHrz3l6FdCLDUnwxKP8JNtLaH/tjUTovpwZ4PP2oFE=" >
+                        {#                    <blockquote>
+                        <p>The history of medicine is that what was inconceivable yesterday and barely achievable today often becomes routine tomorrow.</p>
+                        <small>Thomas Starzl <cite title="MD">MD</cite></small>
+                    </blockquote> #}
+                        <form class="form-inline">
+                            <span class="add-on">$</span><input type="text" name="amount" class="input-small" value="15">
+                            <button type="submit" class="btn btn-info">Give Now</button>
+                        </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+</div><!-- /.container -->
 
 {% endblock %}
