@@ -77,35 +77,35 @@ def search_results():
 ######
 
 
-@app.route("/conditions/")
-def page_conditions_index():
-    return render_template('conditions/index.html')
+#@app.route("/conditions/")
+#def page_conditions_index():
+#    return render_template('conditions/index.html')
 
 
-@app.route("/conditions/<level1>/")
-def page_conditions_toplevel(level1):
+#@app.route("/conditions/<level1>/")
+#def page_conditions_toplevel(level1):
     # TODO: Does Flask provide a similar function?
     # I see safe_join ...
 
     # TODO: This 404 logic sucks. Fix it.
-    if (is_safe_string(level1)):
-        try:
-            return render_template('conditions/%s/index.html' % (level1,))
-        except jinja2.exceptions.TemplateNotFound:
-            return render_template('errors/404.html'), 404
-    else:
-        return render_template('errors/404.html'), 404
+#    if (is_safe_string(level1)):
+#        try:
+#            return render_template('conditions/%s/index.html' % (level1,))
+#        except jinja2.exceptions.TemplateNotFound:
+#            return render_template('errors/404.html'), 404
+#    else:
+#        return render_template('errors/404.html'), 404
 
 
-@app.route("/conditions/<level1>/<level2>.html")
-def page_conditions_level2(level1, level2):
-    if (is_safe_string(level1) and is_safe_string(level2)):
-        try:
-            return render_template('conditions/%s/%s.html' % (level1, level2))
-        except jinja2.exceptions.TemplateNotFound:
-            return render_template('errors/404.html'), 404
-    else:
-        return render_template('errors/404.html'), 404
+#@app.route("/conditions/<level1>/<level2>.html")
+#def page_conditions_level2(level1, level2):
+#    if (is_safe_string(level1) and is_safe_string(level2)):
+#        try:
+#            return render_template('conditions/%s/%s.html' % (level1, level2))
+#        except jinja2.exceptions.TemplateNotFound:
+#            return render_template('errors/404.html'), 404
+#    else:
+#        return render_template('errors/404.html'), 404
 
 
 
